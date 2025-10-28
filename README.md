@@ -21,6 +21,7 @@ A modern, aesthetic SPA portfolio showcasing work in software development, real 
 
 ```bash
 # Install dependencies with legacy peer deps flag
+# (Required due to lucide-react peer dependency constraints with React 19)
 npm install --legacy-peer-deps
 
 # Start development server
