@@ -6,12 +6,14 @@ import { ProjectsSection } from '@/components/sections/ProjectsSection';
 import { ContactSection } from '@/components/sections/ContactSection';
 import { FixedBackground } from '@/components/FixedBackground';
 import { Navigation } from '@/components/Navigation';
+import { BlogButton } from '@/components/BlogButton';
 
 export default function Home() {
   return (
     <>
       <FixedBackground />
       <Navigation />
+      <BlogButton />
       <main className="w-full overflow-hidden relative z-10 pt-20">
         <section id="hero">
           <HeroSection />

@@ -76,8 +76,8 @@ export const Navigation = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/70 backdrop-blur-md shadow-md'
+          isScrolled || isMobileMenuOpen
+            ? 'backdrop-blur-md shadow-md'
             : 'bg-transparent'
         }`}
         style={{
@@ -161,30 +161,31 @@ export const Navigation = () => {
           role="region"
           aria-label="Mobile navigation menu"
         >
-          <ul className="px-4 py-4 flex flex-col gap-0 bg-white/90 backdrop-blur-md mobile-menu">
+          <ul className="px-4 py-4 flex flex-col gap-0 backdrop-blur-md mobile-menu">
             {sections.map((section) => (
               <li key={section.id}>
                 <motion.button
                   onClick={() => scrollToSection(section.id)}
-                  className="mobile-menu-item w-full text-left py-4 px-6 font-medium transition-all focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-inset rounded-lg"
+                  className="w-full text-left py-4 px-6 font-medium transition-all focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-inset rounded-lg relative"
                   style={{
                     color: activeSection === section.id ? '#4F0147' : '#5a4a5c',
                   }}
-                  whileHover={{ x: 4, backgroundColor: 'rgba(79, 1, 71, 0.05)' }}
+                  whileHover={{ x: 4 }}
                   whileTap={{ scale: 0.98 }}
                   aria-current={activeSection === section.id ? 'page' : undefined}
                 >
                   <span className="flex items-center justify-between">
                     {section.label}
-                    {activeSection === section.id && (
-                      <motion.span
-                        className="w-2 h-2 rounded-full"
-                        style={{ backgroundColor: '#4F0147' }}
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                      />
-                    )}
                   </span>
+                  
+                  {/* Underline animation */}
+                  <motion.div
+                    className="absolute bottom-2 left-6 right-6 h-0.5 bg-gradient-to-r from-purple-600 to-purple-800"
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: activeSection === section.id ? 1 : 0 }}
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                    style={{ transformOrigin: 'left' }}
+                  />
                 </motion.button>
               </li>
             ))}
