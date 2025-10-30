@@ -84,12 +84,13 @@ export const ContactSection = () => {
           className="grid md:grid-cols-4 gap-6 mb-12"
         >
           {/* Email CTA */}
-          <motion.div
+          <motion.a
+            href="mailto:grant.e.hopkins@gmail.com"
             whileHover={{ y: -6 }}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-            className="group"
+            className="group block"
           >
-            <div className="p-6 rounded-2xl backdrop-blur-sm border transition-all duration-300 card-hover" style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)', borderColor: 'rgba(79, 1, 71, 0.2)' }}>
+            <div className="p-6 rounded-2xl backdrop-blur-sm border transition-all duration-300 card-hover cursor-pointer h-full" style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)', borderColor: 'rgba(79, 1, 71, 0.2)' }}>
               <motion.div
                 animate={{ 
                   y: [0, -5, 0],
@@ -103,24 +104,23 @@ export const ContactSection = () => {
               <p className="mb-4 leading-relaxed font-light text-sm" style={{ color: '#5a4a5c' }}>
                 Have a project in mind? Let's discuss how we can build something great together.
               </p>
-              <a
-                href="mailto:grant.e.hopkins@gmail.com"
-                className="inline-flex items-center font-semibold hover:gap-2 transition-all group/link text-sm"
-                style={{ color: '#4F0147' }}
-              >
+              <div className="inline-flex items-center font-semibold group-hover:gap-2 transition-all text-sm" style={{ color: '#4F0147' }}>
                 Email Me
-                <Send className="w-3 h-3 ml-2 group-hover/link:translate-x-1 group-hover/link:-translate-y-0.5 transition-transform" />
-              </a>
+                <Send className="w-3 h-3 ml-2 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
+              </div>
             </div>
-          </motion.div>
+          </motion.a>
 
           {/* LinkedIn CTA */}
-          <motion.div
+          <motion.a
+            href="https://www.linkedin.com/in/grant-hopkins-computer-science"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ y: -6 }}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-            className="group"
+            className="group block"
           >
-            <div className="p-6 rounded-2xl backdrop-blur-sm border transition-all duration-300 card-hover" style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)', borderColor: 'rgba(79, 1, 71, 0.2)' }}>
+            <div className="p-6 rounded-2xl backdrop-blur-sm border transition-all duration-300 card-hover cursor-pointer h-full" style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)', borderColor: 'rgba(79, 1, 71, 0.2)' }}>
               <motion.div
                 animate={{ 
                   y: [0, -5, 0],
@@ -134,26 +134,23 @@ export const ContactSection = () => {
               <p className="mb-4 leading-relaxed font-light text-sm" style={{ color: '#5a4a5c' }}>
                 Follow my professional journey and latest insights.
               </p>
-              <a
-                href="https://www.linkedin.com/in/grant-hopkins-computer-science"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center font-semibold hover:gap-2 transition-all group/link text-sm"
-                style={{ color: '#4F0147' }}
-              >
+              <div className="inline-flex items-center font-semibold group-hover:gap-2 transition-all text-sm" style={{ color: '#4F0147' }}>
                 LinkedIn
-                <ArrowRight className="w-3 h-3 ml-2 group-hover/link:translate-x-1 transition-transform" />
-              </a>
+                <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
+              </div>
             </div>
-          </motion.div>
+          </motion.a>
 
           {/* GitHub CTA */}
-          <motion.div
+          <motion.a
+            href="https://github.com/grant0315"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ y: -6 }}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-            className="group"
+            className="group block"
           >
-            <div className="p-6 rounded-2xl backdrop-blur-sm border transition-all duration-300 card-hover" style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)', borderColor: 'rgba(79, 1, 71, 0.2)' }}>
+            <div className="p-6 rounded-2xl backdrop-blur-sm border transition-all duration-300 card-hover cursor-pointer h-full" style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)', borderColor: 'rgba(79, 1, 71, 0.2)' }}>
               <motion.div
                 animate={{ 
                   y: [0, -5, 0],
@@ -167,26 +164,23 @@ export const ContactSection = () => {
               <p className="mb-4 leading-relaxed font-light text-sm" style={{ color: '#5a4a5c' }}>
                 Check out my open-source projects and code.
               </p>
-              <a
-                href="https://github.com/grant0315"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center font-semibold hover:gap-2 transition-all group/link text-sm"
-                style={{ color: '#4F0147' }}
-              >
+              <div className="inline-flex items-center font-semibold group-hover:gap-2 transition-all text-sm" style={{ color: '#4F0147' }}>
                 GitHub
-                <ArrowRight className="w-3 h-3 ml-2 group-hover/link:translate-x-1 transition-transform" />
-              </a>
+                <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
+              </div>
             </div>
-          </motion.div>
+          </motion.a>
 
           {/* Blog CTA */}
-          <motion.div
+          <motion.a
+            href="https://medium.com/@granthopkins0315"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ y: -6 }}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-            className="group"
+            className="group block"
           >
-            <div className="p-6 rounded-2xl backdrop-blur-sm border transition-all duration-300 card-hover" style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)', borderColor: 'rgba(79, 1, 71, 0.2)' }}>
+            <div className="p-6 rounded-2xl backdrop-blur-sm border transition-all duration-300 card-hover cursor-pointer h-full" style={{ backgroundColor: 'rgba(255, 255, 255, 0.6)', borderColor: 'rgba(79, 1, 71, 0.2)' }}>
               <motion.div
                 animate={{ 
                   y: [0, -5, 0],
@@ -200,50 +194,12 @@ export const ContactSection = () => {
               <p className="mb-4 leading-relaxed font-light text-sm" style={{ color: '#5a4a5c' }}>
                 Insights on data engineering, AI/ML systems, and building scalable products.
               </p>
-              <a
-                href="https://www.bytebite.blog"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center font-semibold hover:gap-2 transition-all group/link text-sm"
-                style={{ color: '#4F0147' }}
-              >
-                Visit ByteBite
-                <ArrowRight className="w-3 h-3 ml-2 group-hover/link:translate-x-1 transition-transform" />
-              </a>
+              <div className="inline-flex items-center font-semibold group-hover:gap-2 transition-all text-sm" style={{ color: '#4F0147' }}>
+                Visit Medium
+                <ArrowRight className="w-3 h-3 ml-2 group-hover:translate-x-1 transition-transform" />
+              </div>
             </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Social Links */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="flex justify-center gap-6 py-8 border-t border-b"
-          style={{ borderColor: 'rgba(79, 1, 71, 0.2)' }}
-        >
-          {contactLinks.map((link) => {
-            const Icon = link.icon;
-            return (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.15, rotate: 5 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center justify-center w-16 h-16 rounded-full border-2 transition-all duration-300 shadow-md hover:shadow-lg group"
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.8)',
-                  borderColor: 'rgba(79, 1, 71, 0.3)',
-                }}
-                title={link.label}
-              >
-                <Icon className="w-7 h-7 group-hover:scale-125 transition-transform" style={{ color: link.color }} />
-              </motion.a>
-            );
-          })}
+          </motion.a>
         </motion.div>
 
         {/* Footer tagline */}
