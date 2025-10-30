@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -90,14 +91,20 @@ export const Navigation = () => {
           {/* Logo */}
           <motion.button
             onClick={() => scrollToSection('hero')}
-            className="text-lg font-bold transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 rounded"
+            className="transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 rounded"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            style={{ color: '#2d1b2e' }}
             aria-label="Grant Hopkins - Go to home"
             aria-current={activeSection === 'hero' ? 'page' : undefined}
           >
-            GH
+            <Image 
+              src="/icon.png" 
+              alt="Grant Hopkins Logo" 
+              width={32} 
+              height={32}
+              className="rounded"
+              priority
+            />
           </motion.button>
 
           {/* Desktop Navigation */}
