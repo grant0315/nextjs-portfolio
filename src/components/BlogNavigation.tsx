@@ -10,6 +10,27 @@ export const BlogNavigation = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // Get URLs based on environment
+  const getMainUrl = () => {
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname;
+      if (hostname.includes('localhost')) {
+        return 'http://localhost:3000';
+      }
+    }
+    return 'https://www.granthopkins.com';
+  };
+
+  const getDemosUrl = () => {
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname;
+      if (hostname.includes('localhost')) {
+        return 'http://demos.localhost:3000';
+      }
+    }
+    return 'https://demos.granthopkins.com';
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -55,7 +76,7 @@ export const BlogNavigation = () => {
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
           {/* Logo - Link to main site */}
           <motion.a
-            href="https://www.granthopkins.com"
+            href={getMainUrl()}
             className="transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 rounded"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -74,12 +95,20 @@ export const BlogNavigation = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
             <motion.a
-              href="https://www.granthopkins.com"
+              href={getMainUrl()}
               className="text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-purple-600 rounded px-2 py-1"
               style={{ color: '#5a4a5c' }}
               whileHover={{ color: '#4F0147' }}
             >
               Portfolio
+            </motion.a>
+            <motion.a
+              href={getDemosUrl()}
+              className="text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-purple-600 rounded px-2 py-1"
+              style={{ color: '#5a4a5c' }}
+              whileHover={{ color: '#4F0147' }}
+            >
+              Demos
             </motion.a>
             <motion.button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -119,13 +148,26 @@ export const BlogNavigation = () => {
           <ul className="px-4 py-4 flex flex-col gap-0 backdrop-blur-md">
             <li>
               <motion.a
-                href="https://www.granthopkins.com"
+                href={getMainUrl()}
                 className="w-full text-left py-4 px-6 font-medium transition-all focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-inset rounded-lg"
                 style={{ color: '#5a4a5c' }}
                 whileHover={{ x: 4 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 Portfolio
+              </motion.a>
+            </li>
+            <li>
+              <motion.a
+                href={getDemosUrl()}
+                className="w-full text-left py-4 px-6 font-medium transition-all focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-inset rounded-lg"
+                style={{ color: '#5a4a5c' }}
+                whileHover={{ x: 4 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Demos
               </motion.a>
             </li>
             <li>
