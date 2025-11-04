@@ -65,16 +65,16 @@ const ProjectCard = ({ project }: { project: Project }) => (
       {/* Gradient top border */}
       <div className={`absolute top-0 left-0 right-0 h-1 bg-linear-to-r ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity`}></div>
 
-      <div className="h-full p-6 flex flex-col">
+      <div className="h-full p-5 flex flex-col">
         {/* Header with status badge */}
-        <div className="flex items-start justify-between mb-4">
-          <h3 className="text-xl md:text-2xl font-bold leading-tight" style={{ color: '#2d1b2e' }}>
+        <div className="flex items-start justify-between mb-3">
+          <h3 className="text-lg md:text-xl font-bold leading-tight" style={{ color: '#2d1b2e' }}>
             {project.name}
           </h3>
           {project.status && (
             <motion.span
               whileHover={{ scale: 1.1 }}
-              className={`px-2 py-1 text-xs font-bold rounded-full whitespace-nowrap ml-4 flex items-center gap-1 ${
+              className={`px-2 py-1 text-xs font-bold rounded-full whitespace-nowrap ml-3 flex items-center gap-1 ${
                 project.status === 'live'
                   ? 'bg-green-100 text-green-700'
                   : 'bg-amber-100 text-amber-700'
@@ -96,12 +96,12 @@ const ProjectCard = ({ project }: { project: Project }) => (
         </div>
 
         {/* Description */}
-        <p className="mb-4 grow leading-relaxed font-light text-sm" style={{ color: '#5a4a5c' }}>
+        <p className="mb-3 grow leading-relaxed font-light text-sm" style={{ color: '#5a4a5c' }}>
           {project.description}
         </p>
 
         {/* Tech tags */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-2 mb-3">
           {project.tech.map((tech) => (
             <motion.span
               key={tech}
@@ -138,14 +138,14 @@ const ProjectCard = ({ project }: { project: Project }) => (
 
 export const ProjectsSection = () => {
   return (
-    <section className="py-20 px-6 relative overflow-hidden bg-transparent">
+    <section className="py-12 md:py-16 px-6 relative overflow-hidden bg-transparent">
       {/* Decorative elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-linear-to-tr from-purple-300 to-transparent rounded-full filter blur-3xl"></div>
         <div className="absolute top-1/2 right-0 w-96 h-96 bg-linear-to-l from-purple-200 to-transparent rounded-full filter blur-3xl"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10 rounded-3xl glass-effect p-8 md:p-12">
+      <div className="max-w-7xl mx-auto relative z-10 rounded-3xl glass-effect p-6 md:p-8">
         <div className="relative z-10">
         {/* Section title */}
         <motion.div
@@ -153,16 +153,13 @@ export const ProjectsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: '-100px' }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight" style={{ color: '#2d1b2e' }}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-2 tracking-tight" style={{ color: '#2d1b2e' }}>
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-base md:text-lg font-light" style={{ color: '#5a4a5c' }}>
+          <p className="text-base font-light max-w-2xl mx-auto" style={{ color: '#5a4a5c' }}>
             Data-driven platforms that deliver measurable business impact through intelligent engineering.
-          </p>
-          <p className="text-lg max-w-2xl mx-auto font-light" style={{ color: '#5a4a5c' }}>
-            A selection of products I've built that combine technical excellence with real-world impact
           </p>
         </motion.div>
 
@@ -174,7 +171,7 @@ export const ProjectsSection = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
-            className="grid md:grid-cols-2 gap-8 mb-16"
+            className="grid md:grid-cols-2 gap-6"
           >
             {projects.map((project) => (
               <ProjectCard key={project.name} project={project} />
@@ -183,7 +180,7 @@ export const ProjectsSection = () => {
         </div>
 
         {/* Mobile: Swipeable carousel */}
-        <div className="md:hidden mb-8">
+        <div className="md:hidden">
           <SwipeableCarousel
             items={projects.map((project) => (
               <ProjectCard key={project.name} project={project} />
@@ -195,30 +192,6 @@ export const ProjectsSection = () => {
             showArrows={true}
           />
         </div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="text-center pt-8 border-t border-gray-200 dark:border-gray-800"
-        >
-          <p className="text-gray-600 dark:text-gray-400 mb-6 font-light">
-            Want to explore more projects? Check out my GitHub for additional work and contributions.
-          </p>
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg font-medium text-gray-900 dark:text-white hover:border-blue-600 hover:text-blue-600 dark:hover:border-blue-400 dark:hover:text-blue-400 transition-all shadow-md hover:shadow-lg"
-          >
-            Explore More on GitHub
-            <ArrowUpRight className="w-4 h-4" />
-          </motion.a>
-        </motion.div>
         </div>
       </div>
     </section>

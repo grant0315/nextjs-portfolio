@@ -15,6 +15,7 @@ export const Navigation = () => {
     { id: 'hero', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'projects', label: 'Projects' },
+    { id: 'blog', label: 'Blog' },
     { id: 'contact', label: 'Contact' },
   ];
 
@@ -33,14 +34,17 @@ export const Navigation = () => {
       const heroOffset = document.getElementById('hero')?.offsetTop ?? 0;
       const aboutOffset = document.getElementById('about')?.offsetTop ?? 0;
       const projectsOffset = document.getElementById('projects')?.offsetTop ?? 0;
+      const blogOffset = document.getElementById('blog')?.offsetTop ?? 0;
       const contactOffset = document.getElementById('contact')?.offsetTop ?? 0;
 
       if (scrollTop < aboutOffset - 100) {
         setActiveSection('hero');
       } else if (scrollTop < projectsOffset - 100) {
         setActiveSection('about');
-      } else if (scrollTop < contactOffset - 100) {
+      } else if (scrollTop < blogOffset - 100) {
         setActiveSection('projects');
+      } else if (scrollTop < contactOffset - 100) {
+        setActiveSection('blog');
       } else {
         setActiveSection('contact');
       }

@@ -3,6 +3,7 @@
 import { HeroSection } from '@/components/sections/HeroSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
+import { BlogPreviewSection } from '@/components/sections/BlogPreviewSection';
 import { ContactSection } from '@/components/sections/ContactSection';
 import { FixedBackground } from '@/components/FixedBackground';
 import { Navigation } from '@/components/Navigation';
@@ -23,6 +24,9 @@ export default function Home() {
         </section>
         <section id="projects">
           <ProjectsSection />
+        </section>
+        <section id="blog">
+          <BlogPreviewSection />
         </section>
         <section id="contact">
           <ContactSection />
